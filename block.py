@@ -1,3 +1,4 @@
+from transaction import *
 import time
 import hashlib
 import json
@@ -45,8 +46,17 @@ class Block:
             "previous_hash": self.previous_hash,
             "hash": self.hash
         }
-        
 
-block = Block(0, "0", 4)
-print(block.hash)
+    def add_transaction(self, transaction: Transaction):
+        self.transactions.append(transaction.transaction_to_dict())
 
+    def print_block(self):
+        print('-' * 80)
+        print(f'Index: {self.index}')
+        print(f'Transactions: {self.transactions}')
+        print(f'Timestamp: {self.timestamp}')
+        print(f'Difficulty: {self.difficulty}')
+        print(f'Nonce: {self.nonce}')
+        print(f'Previous_hash: {self.previous_hash}')
+        print(f'Hash: {self.hash}')
+        print('-' * 80)
