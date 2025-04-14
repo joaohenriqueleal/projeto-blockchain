@@ -13,7 +13,7 @@ class Block:
         self.difficulty = difficulty
         self.nonce = 0
         self.previous_hash = previous_hash
-        self.hash = self.mine_block()
+        self.hash = "0"
 
     def calculate_hash(self):
         block_data = {
@@ -32,7 +32,8 @@ class Block:
         while True:
             hash_attempt = self.calculate_hash()
             if hash_attempt.startswith(prefix):
-                return hash_attempt
+                self.hash = hash_attempt
+                break
             else:
                 self.nonce += 1
 
