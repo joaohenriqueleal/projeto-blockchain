@@ -66,7 +66,7 @@ def main_menu():
             print('Obrigado! Volte Sempre!')
             exit()
         else:
-            print('\033[;31mDigite um inteiro de 1 a 6!')
+            print('\033[;31mDigite um inteiro de 1 a 6!\033[m')
         blockchain.adjust_difficulty()
 
 if __name__ == '__main__':
